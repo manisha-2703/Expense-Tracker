@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div id="signupPage">
+            <div class="form-wrap">
+                <form id="signupForm">
+                    <div class="form-group form-check-inline">
+                        <label for="signupName">Name:</label>
+                        <input type="text" class="form-control" id="signupName" name="text" required>
+                    </div>
+                    <div class="form-group form-check-inline">
+                        <label for="signupEmail">Email:</label>
+                        <input type="email" class="form-control" id="signupEmail" name="email" required>
+                    </div>
+                    <div class="form-group form-check-inline">
+                        <label for="signupPassword">Password:</label>
+                        <input type="password" class="form-control" id="signupPassword" name="password" required>
+                    </div>
+                    <div><button type="button" class="btn btn-primary" id="signupBtn">Sign Up</button></div>
+                </form>
+            </div>
+        </div>
+
+        <div id="expensesPage" style="display: none;">
+            <div class="form-wrap">
+                <form id="expenseForm">
+                    <!-- Your expenses form fields go here -->
+                    <div class="form-group form-check-inline">
+                        <label for="expense">Expense:</label>
+                        <input type="text" class="form-control" id="expense" name="expense" required>
+                    </div>
+                    <div class="form-group form-check-inline">
+                        <label for="description">Description:</label>
+                        <input type="text" class="form-control" id="description" name="description" required>
+                    </div>
+                    <div class="form-group form-check-inline">
+                        <label for="category">Category:</label>
+                        <input type="text" class="form-control" id="category" name="category" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="submitBtn">Add Expense</button>
+                </form>
+
+                <div id="expenseList"></div>
+
+                <form id="editExpenseForm" style="display: none;">
+                    <!-- Your edit form fields go here -->
+                    <input type="hidden" id="editExpenseId">
+                    <div class="form-group form-check-inline">
+                        <label for="editExpense">Expense:</label>
+                        <input type="text" class="form-control" id="editExpense" name="editExpense" required>
+                    </div>
+                    <div class="form-group form-check-inline">
+                        <label for="editDescription">Description:</label>
+                        <input type="text" class="form-control" id="editDescription" name="editDescription" required>
+                    </div>
+                    <div class="form-group form-check-inline">
+                        <label for="editCategory">Category:</label>
+                        <input type="text" class="form-control" id="editCategory" name="editCategory" required>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="updateBtn">Update Expense</button>
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/public/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+</head>
+<body>
+    
+    <div class="container mt-5">
+        <div class="form-wrap">
+            <form id="ExpenseForm">
+                
+                <div class="form-group form-check-inline">
+                    <label for="expense">Expense:</label>
+                    <input type="number" class="form-control" id="expense" name="expense">
+                </div>
+                <div class="form-group form-check-inline">
+                    <label for="description">Description:</label>
+                    <input type="text" class="form-control" id="description" name="description" required>
+                </div>
+                <div class="form-group form-check-inline">
+                    <label for="category">Category:</label>
+                    <select class="form-control" id="category" name="category" required>
+                        <option value="" disabled selected>Select a category</option>
+                        <option value="movie">Movie</option>
+                        <option value="electricity">Electricity</option>
+                        <option value="food">Food</option>
+                        <option value="vacation">Vacation</option>
+                        <option value="rent">Rent Charges</option>
+                    </select>
+                </div>
+                
+                
+                <button type="button" class="btn btn-primary" id="submitBtn">Add Expense</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+     document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('ExpenseForm');
+    const submitButton = document.getElementById('submitBtn');
+    const userListContainer = document.createElement('div');  
+    userListContainer.id = 'userList';
+    document.body.appendChild(userListContainer);  
+
+    
+    function displayUserDetails(userDetailsList) {
+        userListContainer.innerHTML = '';
+
+        userDetailsList.forEach((userDetails, index) => {
+            const userDiv = document.createElement('div');
+            userDiv.classList.add('user-details');
+
+            const expenseParagraph = document.createElement('p');
+            expenseParagraph.textContent = ` ${userDetails.expense}`;
+
+            const descriptionParagraph = document.createElement('p');
+            descriptionParagraph.textContent = `${userDetails.description}`;
+
+
+            const categoryParagraph = document.createElement('p');
+            categoryParagraph.textContent = `${userDetails.category}`;
+
+            
+
+            
+
+           
+
+            const editButton = document.createElement('button');
+            editButton.textContent = 'Edit';
+            editButton.addEventListener('click', () => {
+
+                document.getElementById('expense').value = userDetails.expense;
+                document.getElementById('description').value = userDetails.description;
+                document.getElementById('category').value = userDetails.category;
+                
+                
+
+                
+                userDetailsList.splice(index, 1);
+                localStorage.setItem('userDetails', JSON.stringify(userDetailsList));
+                displayUserDetails(userDetailsList);
+            });
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.addEventListener('click', () => {
+                userDetailsList.splice(index, 1);
+                localStorage.setItem('userDetails', JSON.stringify(userDetailsList));
+                displayUserDetails(userDetailsList);
+            });
+
+            userDiv.appendChild(expenseParagraph);
+            userDiv.appendChild(descriptionParagraph);
+            userDiv.appendChild(categoryParagraph);
+            
+            
+            userDiv.appendChild(editButton);
+            userDiv.appendChild(deleteButton);
+
+            userListContainer.appendChild(userDiv);
+        });
+    }
+
+    function handleFormSubmit(event) {
+
+        const expense = document.getElementById('expense').value;
+        const description = document.getElementById('description').value;
+        const category = document.getElementById('category').value;
+        
+       
+
+        let userDetailsList = JSON.parse(localStorage.getItem('userDetails')) || [];
+
+        const userDetails = {
+            expense: expense,
+            description: description,
+            category: category,
+            
+           
+        };
+
+        userDetailsList.push(userDetails);
+
+        localStorage.setItem('userDetails', JSON.stringify(userDetailsList));
+
+        displayUserDetails(userDetailsList);
+        form.reset();
+    }
+
+    submitButton.addEventListener('click', handleFormSubmit);
+
+    const existingUserDetails = JSON.parse(localStorage.getItem('userDetails')) || [];
+    displayUserDetails(existingUserDetails);
+});
+
+
+
+    </script>
+</body>
+</html>

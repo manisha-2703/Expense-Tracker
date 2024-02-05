@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, 
+						initial-scale=1.0">
+	<title>Expense Tracker</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/signup.css">
+    <script src="https://kit.fontawesome.com/5ea510c06b.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+	<!-- container div -->
+	<div class="container">
+
+		<!-- upper button section to select
+			the login or signup form -->
+		<div class="slider"></div>
+		<div class="btn">
+			<button class="login">Login</button>
+			<button class="signup">Signup</button>
+		</div>
+		<div class="form-section">
+			<div class="login-box">
+				<input type="email"
+					class="email ele"
+					placeholder="youremail@email.com">
+				<input type="password"
+					class="password ele"
+					placeholder="password">
+				<button class="clkbtn">Login</button>
+                <p id="errorMessage" style="color: rgb(235, 225, 225);"></p>
+				<a href="forgotPassword.html">Forgot Password ! Click here</a>
+			</div>
+
+			<div class="signup-box">
+				<input type="text"
+					class="name ele"
+					placeholder="Enter your name">
+				<input type="email"
+					class="email ele"
+					placeholder="youremail@email.com">
+				<input type="password"
+					class="password ele"
+					placeholder="password">
+				<input type="password"
+					class="password ele"
+					placeholder="Confirm password">
+				<button class="clkbtn">Signup</button>
+                <p id="errorMessages" style="color: rgb(233, 223, 223);"></p>
+			</div>
+		</div>
+	</div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script defer src="/public/signup.js"></script>
+</body>
+</html>
+

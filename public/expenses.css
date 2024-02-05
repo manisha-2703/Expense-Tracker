@@ -1,0 +1,143 @@
+body {
+    background-color: #191923;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header {
+    background-color: #F39237;
+    height: 10vh;
+   width: 100vw;
+}
+
+nav button {
+    margin-top: 20px;
+    color: beige;
+    background-color: transparent;
+    border: 0;
+}
+nav #premiumMessage{
+    color: rgb(37, 38, 40);
+    font-weight: 700;
+
+}
+
+#menuicon{
+    display: none;
+}
+#mainmenu {
+    display: flex;
+    position: absolute;
+    list-style-type: none;
+    flex-flow: row nowrap;
+}
+
+.container {
+    color: #FBFEF9;
+}
+
+.table {
+    color: #FBFEF9;
+    margin-top: 2rem;
+    width: 90%; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+.leaderboard-table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 2rem auto;
+    color: #FBFEF9;
+}
+
+button {
+    border-radius: 10%;
+    background-color: #0E79B2;
+    color: #FBFEF9;
+    box-shadow: none;
+    border: none;
+}
+  
+#pagination {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+}
+
+footer {
+    color: beige;
+    display: flex;
+    background-color: #F39237;
+    height: 5vh;
+    width: 100vw;
+    justify-content: space-evenly;
+    margin-top: auto;
+}
+
+/* Mobile-friendly styles */
+@media only screen and (max-width: 600px) {
+    header{
+        width: 100vw;
+    }
+    nav{
+        position: relative;
+    }
+
+    #menuicon{
+        float:left;
+        margin-left: 20px;
+        margin-top: 20px;
+        display: block;
+        height: 30px;
+        width:30px;
+    
+    }
+    .table{
+        width:90vw;
+    }
+    #mainmenu {
+        position: absolute;
+        top: 80px;
+        list-style-type: none; 
+        padding: 0;
+        margin: 5px; 
+        float: left;
+    }
+
+    #mainmenu li button{
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        font-size: 1rem;
+        color:#F39237;
+        text-decoration: None;
+        background-color: #191923;
+        transition: background-color 300ms linear;
+        margin-left: 120px;
+        border-radius: 0%;
+        margin-top: 0;
+        
+    }
+
+    #navbar {
+        display: flex;
+        flex-direction: row-reverse;
+        float:left;
+        
+    }
+    #mainmenu li:hover{
+        background-color: #222;
+    }
+
+    .table {
+        width: 90vw; /* Adjust width for mobile devices */
+    }
+
+    .leaderboard-table {
+        width: 90vw; /* Adjust width for mobile devices */
+    }
+    
+    
+    
+}

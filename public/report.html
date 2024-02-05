@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-to-Day Expenses</title>
+    <link rel="stylesheet" href="report.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <button id="home">Back Home</button>
+    </header>
+
+    <div class="container mt-5">
+        <h2>Day-to-Day Expenses</h2>
+        <h3 id="monthHeading">January 2024</h3>
+        
+        <table class="table" id="reportTable">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Expenses</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be added dynamically using JavaScript -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Total Salary</td>
+                    <td id="totalSalaryExpenses">0</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Total Expenses</td>
+                    <td id="totalExpensesWithoutSalary">0</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Savings</td>
+                    <td id="savings">0</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <!-- Add a download button -->
+        <button class="btn btn-primary" id="downloadThisReportBtn" disabled>Download Expenses</button>
+        <button class="btn btn-success" id="showDownloadedFilesBtn">Show All Downloaded Files</button>
+
+        <!-- Display a list of downloaded files -->
+        <div id="downloadedFilesList">
+            <h2>Downloaded Files</h2>
+            <ul id="filesList"></ul>
+        </div>
+    </div>
+    <footer>
+        <p>
+            Contact Us: expensetracker@gmail.com
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="report.js"></script>
+</body>
+</html>
