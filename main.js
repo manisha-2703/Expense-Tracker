@@ -22,7 +22,8 @@ const Expense = require('./Model/expense');
 const User = require('./Model/user');
 const Order=require('./Model/orders');
 const Forgotpassword=require('./Model/password');
-const DownloadedFile=require('./Model/report')
+const DownloadedFile=require('./Model/report');
+const { sync } = require('touch');
 
 const accessLogStream=fs.createWriteStream(
     path.join(__dirname,'access.log'),
@@ -64,7 +65,8 @@ sequelize.sync()
         console.error('Error syncing database:', error);
     });
 
-const PORT = process.env.PORT || 3000;
+    const PORT = process.env.PORT || 4000;
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
