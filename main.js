@@ -35,13 +35,17 @@ app.use(helmet());
 app.use(cors());
 app.use(compression());
 app.use(morgan('combined',{stream:accessLogStream}));
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/expenses', expenseRoutes);
 app.use('/users', userRoutes);
 app.use('/purchase',purchaseRoutes);
 app.use('/premium',premiumRoutes);
 app.use('/password',passwordRoutes);
+app.use((req,res)=>{
+    console.log('urlll',req.url)
+    res.sendFile(path.join(__dirname,`public/${req.url}`))
+})
 
 
 User.hasMany(Expense);

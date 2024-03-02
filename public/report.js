@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
           const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
           const currentYear = currentDate.getFullYear();
 
-          const response = await axios.get(`http://localhost:3000/expenses?month=${currentMonth}&year=${currentYear}`, {
+          const response = await axios.get(`http://13.48.85.81:3000/expenses?month=${currentMonth}&year=${currentYear}`, {
               headers: { "Authorization": token }
           });
 
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
   downloadExpensesBtn.addEventListener('click', async function () {
       try {
           const token = localStorage.getItem('token');
-          const response = await axios.get('http://localhost:3000/expenses/download', {
+          const response = await axios.get('http://13.48.85.81:3000/expenses/download', {
               headers: { "Authorization": token },
           });
 
@@ -106,7 +106,7 @@ showDownloadedFilesBtn.addEventListener('click', async function () {
 
     try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:3000/expenses/download-history', {
+        const response = await axios.get('http://13.48.85.81:3000/expenses/download-history', {
             headers: { "Authorization": token },
         });
 

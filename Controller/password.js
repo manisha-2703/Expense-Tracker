@@ -27,7 +27,7 @@ const forgotpassword = async (req, res) => {
         from: 'mandlipallimanisha123@gmail.com',
         to: email,
         subject: 'Reset Password',
-        html: `<a href="http://localhost:3000/password/resetpassword/${id}">Reset password</a>`,
+        html: `<a href="http://13.48.85.81:3000/password/resetpassword/${id}">Reset password</a>`,
       };
 
       transporter.sendMail(mailOptions, (error, info) => {

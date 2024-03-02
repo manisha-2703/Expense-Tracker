@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const password = signupForm.querySelector('.password').value;
 
     // Send data to server
-    axios.post('http://localhost:3000/users/signup', { name, email, password })
+    axios.post('http://13.48.85.81:3000/users/signup', { name, email, password })
       .then(response => {
         
         console.log(response.data);
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const password = signinForm.querySelector('.password').value;
 
     // Send data to server for sign-in
-    axios.post('http://localhost:3000/users/login', { email, password })
+    axios.post('http://13.48.85.81:3000/users/login', { email, password })
       .then(response => {
         console.log(response.data);
         localStorage.setItem('token',response.data.token)

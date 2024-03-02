@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
   async function checkAndUpdatePremiumStatus() {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:3000/users/profile', { headers: { "Authorization": token } });
+      const response = await axios.get('http://13.48.85.81:3000/users/profile', { headers: { "Authorization": token } });
 
       const isPremium = response.data.ispremiumuser || false;
       updateUIForPremiumUser(isPremium);
@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const token = localStorage.getItem('token');
 
-    axios.post('http://localhost:3000/expenses', newExpense, { headers: { "Authorization": token } })
+    axios.post('http://13.48.85.81:3000/expenses', newExpense, { headers: { "Authorization": token } })
       .then(response => response.data)
       .then(data => {
         fetchExpenses();
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const token = localStorage.getItem('token');
     const pageSize = expensesPerPageSelect.value;
   
-    axios.get(`http://localhost:3000/expenses?page=${pageNumber}&pageSize=${pageSize}`, { headers: { "Authorization": token } })
+    axios.get(`http://13.48.85.81:3000/expenses?page=${pageNumber}&pageSize=${pageSize}`, { headers: { "Authorization": token } })
       .then(response => {
         console.log('Expense API Response:', response);
   
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function deleteExpense(expenseId) {
     const token = localStorage.getItem('token')
-    axios.delete(`http://localhost:3000/expenses/${expenseId}`,{ headers: {"Authorization" : token} })
+    axios.delete(`http://13.48.85.81:3000/expenses/${expenseId}`,{ headers: {"Authorization" : token} })
       .then(response => response.data)
       .then(data => {
         fetchExpenses();
@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function () {
       category: category,
     };
 
-    axios.put(`http://localhost:3000/expenses/${id}`, updatedExpense)
+    axios.put(`http://13.48.85.81:3000/expenses/${id}`, updatedExpense)
       .then(response => response.data)
       .then(data => {
         // Hide the edit form
@@ -335,13 +335,13 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('buyPremiumBtn').onclick = async function (e) {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:3000/purchase/premiummembership', { headers: { "Authorization": token } });
+      const response = await axios.get('http://13.48.85.81:3000/purchase/premiummembership', { headers: { "Authorization": token } });
 
       var options = {
         "key": response.data.key_id,
         "order_id": response.data.order.id,
         "handler": async function (response) {
-          const res = await axios.post('http://localhost:3000/purchase/updatetransactionstatus', {
+          const res = await axios.post('http://13.48.85.81:3000/purchase/updatetransactionstatus', {
             order_id: options.order_id,
             payment_id: response.razorpay_payment_id,
           }, { headers: { "Authorization": token } });
@@ -373,7 +373,7 @@ document.addEventListener('DOMContentLoaded', function () {
    async function fetchLeaderboard() {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:3000/premium/showLeaderBoard', { headers: { "Authorization": token } });
+      const response = await axios.get('http://13.48.85.81:3000/premium/showLeaderBoard', { headers: { "Authorization": token } });
 
       if (response.data) {
         displayLeaderboard(response.data);

@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
             password: password,
         };
 
-        axios.post('http://localhost:3000/users/signup', newUser)
+        axios.post('http://13.48.85.81:3000/users/signup', newUser)
             .then(response => response.data)
             .then(data => {
                 console.log('User signed up successfully:', data);
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
             category: category,
         };
     
-        axios.post('http://localhost:3000/expenses', newExpense)
+        axios.post('http://13.48.85.81:3000/expenses', newExpense)
             .then(response => response.data)
             .then(data => {
                 fetchExpenses();
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     function fetchExpenses() {
-        axios.get('http://localhost:3000/expenses')
+        axios.get('http://13.48.85.81:3000/expenses')
             .then(response => {
                 if (!response.data) {
                     throw new Error('No data received from the server');
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function deleteExpense(expenseId) {
-        axios.delete(`http://localhost:3000/expenses/${expenseId}`)
+        axios.delete(`http://13.48.85.81:3000/expenses/${expenseId}`)
             .then(response => response.data)
             .then(data => {
                 fetchExpenses();
