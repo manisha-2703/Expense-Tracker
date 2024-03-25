@@ -44,6 +44,7 @@ app.use('/premium',premiumRoutes);
 app.use('/password',passwordRoutes);
 app.use((req,res)=>{
     console.log('urlll',req.url)
+    console.log('req is sucessfull')
     res.sendFile(path.join(__dirname,`public/${req.url}`))
 })
 
